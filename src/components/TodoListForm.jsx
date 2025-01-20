@@ -27,6 +27,28 @@ const TodoListForm = () => {
   // Stato della lista delle attività
   const [todoList, setTodoList] = useState(initialList);
 
+  // Stato del form per gestire i dati di un nuovo elemento
+  const [formData, setFormData] = useState({
+    title: '',
+    content: '',
+    category: categories[0],
+    tags: [],
+    image: '',
+    published: false,
+  });
+
+  // Funzione che aggiorna i dati del form quando l'utente scrive o seleziona qualcosa
+  const handleChange = (e) => {
+    const { name, value, type, checked, files } = e.target;
+
+    setFormData((prevState) => {
+
+      if (type === 'checkbox' && name === 'tags') {
+        const updatedTags = checked ? [...prevState.tags, value] : prevState.tags.filter((tag) => tag !== value);
+
+        return { ...prevState, tags: updatedTags };
+      }
+    });
 
 
 
@@ -41,5 +63,5 @@ const TodoListForm = () => {
 
 
 
-}
-export default TodoListForm;
+  }
+  export default TodoListForm;
