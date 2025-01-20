@@ -67,6 +67,18 @@ const ArticleList = () => {
             onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
             placeholder="Inserisci il titolo"
           />
+        </div>
+
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            value={newTodo.content}
+            onChange={(e) => setNewTodo({ ...newTodo, content: e.target.value })}
+            placeholder="Inserisci il contenuto"
+          />
+
+
           <button className="btn btn-outline-secondary btn-primary text-white" type="submit">
             Aggiungi
           </button>
@@ -85,6 +97,7 @@ const ArticleList = () => {
           </li>
         ))}
       </ul>
+
     </div>
   )
 }
