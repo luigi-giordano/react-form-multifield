@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import TodoListForm from './components/TodoListForm';
+import ArticleList from './components/ArticleList';
 
-const FormBase = () => {
+const App = () => {
 
   return (
     <div className="container my-5">
 
-      <TodoListForm />
+      <ArticleList />
 
     </div>
   );
 }
 
-export default FormBase;
+export default App;
