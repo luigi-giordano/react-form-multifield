@@ -49,18 +49,18 @@ const ArticleList = () => {
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
+    setFormData((prevArticle) => ({
+      ...prevArticle,
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
   const handleTagChange = (tagName) => {
-    setFormData((prev) => {
+    setFormData((prevArticle) => {
       const updatedTags = prev.tags.includes(tagName)
-        ? prev.tags.filter((tag) => tag !== tagName)
-        : [...prev.tags, tagName];
-      return { ...prev, tags: updatedTags };
+        ? prevArticle.tags.filter((tag) => tag !== tagName)
+        : [...prevArticle.tags, tagName];
+      return { ...prevArticle, tags: updatedTags };
     });
   };
 
@@ -128,12 +128,12 @@ const ArticleList = () => {
               <div key={id} className="form-check form-check-inline">
                 <input
                   type="checkbox"
-                  id={`tag-${id}`}
+                  id={id}
                   className="form-check-input"
                   checked={formData.tags.includes(name)}
                   onChange={() => handleTagChange(name)}
                 />
-                <label className="form-check-label" htmlFor={`tag-${id}`}>
+                <label className="form-check-label" htmlFor={id}>
                   {name}
                 </label>
               </div>
